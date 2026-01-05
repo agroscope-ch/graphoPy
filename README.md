@@ -222,3 +222,21 @@ for file_path in required_files:
 This package provides everything needed to run the SOPRA *Grapholita funebrana* model in Python. The implementation is validated, documented, and ready for operational use in pest management and research applications.
 
 **Start with `SOPRA_Demo.ipynb` for a complete walkthrough!**
+
+## Credit and licence
+
+The original SOPRA source codes (in Pascal) were written by Benno Graf and Jörg Samietz (Agroscope, Switzerland). This includes but is not limited to the _Grapholita funebrana_ model. 
+
+This Python implementation has been written by Matthieu Wilhelm (Agroscope, Switzerland).
+
+
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
