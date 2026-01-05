@@ -1,0 +1,2 @@
+[console_scripts]
+sopra-verify = sopra.cli:verify_package
