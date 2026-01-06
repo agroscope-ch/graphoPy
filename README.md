@@ -391,7 +391,7 @@ python verify_package.py
 
 ### **Pascal Reference Validation**
 
-The package includes validation against Pascal reference results in `output_run_Pascal/gfu_all_years.csv`. Maximum differences are < 1e-6, demonstrating excellent precision.
+The package includes validation against Pascal reference results in `output_run_Pascal/gfu_all_years.csv`. Maximum differences have been asssessed (error max < $10^{⁻2}$), demonstrating excellent precision.
 
 ## 🌍 **Station Coverage**
 

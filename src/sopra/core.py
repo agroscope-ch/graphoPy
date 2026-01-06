@@ -5,12 +5,12 @@ SOPRA Core Module - Grapholita funebrana Population Dynamics
 This module contains the core SOPRA model functions for simulating
 the development stages of Grapholita funebrana (plum fruit moth).
 
-The SOPRA (Swiss Orchard Protection Recommendation Algorithm) model
+The SOPRA model
 provides population dynamics modeling and risk assessment capabilities
 for pest management in orchards.
 
-Original R code by Matthieu Wilhelm
-Python implementation: Translated and optimized from R source files
+Original Pascal/Dephi code by Benno Graf and Joerg Samietz 
+(R and) Python code by Matthieu Wilhelm
 
 Main Functions:
     - assign_const_and_var_gfune: Initialize model constants
@@ -26,7 +26,7 @@ from typing import Dict, List, Tuple, Union, Optional
 
 
 # =============================================================================
-# Basic Utility Functions (from 0Unit.R)
+# Basic Utility Functions
 # =============================================================================
 
 def rate(b1: float, b2: float, temp: float) -> float:
@@ -71,7 +71,7 @@ def get_trunk_temp(day: int, temp_air: float, solar_rad: float) -> Dict[str, flo
 
 
 # =============================================================================
-# Constants and Initialization Functions (from Grapholita_funebrana_utils.R)
+# Constants and Initialization Functions
 # =============================================================================
 
 def assign_const_and_var_gfune() -> Dict[str, float]:
@@ -80,6 +80,10 @@ def assign_const_and_var_gfune() -> Dict[str, float]:
     
     Returns:
         Dictionary containing all model constants
+    Note: 
+        References for the parameters are provided. "ACW"  
+        (Agroscope - Changins - Waedenswil) means that those are internal data
+        
     """
     return {
         # Number of substages in delay for different development stages
@@ -181,7 +185,7 @@ def init_value_gfune() -> Dict[str, float]:
 
 
 # =============================================================================
-# Delay Attribution Functions (from del_attribution_fun.R)
+# Delay Attribution Functions 
 # =============================================================================
 
 def set_del(b1: float, b2: float, temp: float) -> float:
