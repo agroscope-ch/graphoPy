@@ -8,7 +8,7 @@ version = "1.0.0"
 authors = [
     {name = "Matthieu Wilhelm", email = "matthieu.wilhelm@agroscope.admin.ch"},
 ]
-description = "Swiss Orchard Protection Recommendation Algorithm - SOPRA model for Grapholita funebrana population dynamics"
+description = "SOPRA model for Grapholita funebrana population dynamics"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
@@ -59,10 +59,9 @@ all = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/agroscope-ch/sopra"
-"Bug Reports" = "https://github.com/agroscope-ch/sopra/issues"
-"Source" = "https://github.com/agroscope-ch/sopra"
-"Documentation" = "https://sopra.readthedocs.io/"
+"Homepage" = "https://github.com/agroscope-ch/graphoPy"
+"Bug Reports" = "https://github.com/agroscope-ch/graphoPy/issues"
+"Source" = "https://github.com/agroscope-ch/graphoPy"
 
 [project.scripts]
 sopra-verify = "sopra.cli:verify_package"

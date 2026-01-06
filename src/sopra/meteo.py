@@ -2,11 +2,11 @@
 SOPRA Meteorological Data Module
 ================================
 
-Utilities for meteorological data discovery, validation, and processing
+Utilities for meteorological data  loading, validation, and processing
 for the SOPRA model system.
 
 This module provides functions to:
-- Discover meteorological data files across different platforms
+- Loading/discovering meteorological data files across different platforms
 - Validate data file formats and completeness
 - Process station metadata and configurations
 - Handle cross-platform path resolution

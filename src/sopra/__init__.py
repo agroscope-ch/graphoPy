@@ -1,5 +1,5 @@
 """
-SOPRA: Swiss Orchard Protection Recommendation Algorithm
+SOPRA
 ========================================================
 
 A Python implementation of the SOPRA model for Grapholita funebrana 

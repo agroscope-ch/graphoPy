@@ -2,7 +2,7 @@
 
 ## 🎯 **Overview**
 
-SOPRA (Swiss Orchard Protection Recommendation Algorithm) is a Python package for modeling *Grapholita funebrana* (plum fruit moth) population dynamics. This package provides a complete, standalone implementation that has been translated from the original Pascal version and thoroughly validated against Pascal reference results.
+This package contains a complete, standalone Python implementation of the SOPRA model for _Grapholita funebrana_ (plum fruit moth) population dynamics. The implementation has been translated from the original Pascal version and thoroughly validated against Pascal reference results.
 
 ## 📦 **Installation**
 
@@ -407,24 +407,26 @@ The package includes 2024 meteorological data for 13 Swiss stations:
 | GUT | Güttingen | 8,638 | WAE | Wädenswil | 8,648 |
 | MAG | Magadino | 8,703 | **Total** | **112,877** |
 
-## 📝 **License**
+## 📝 Credit and licence
 
-MIT License - See LICENSE file for details.
+The original SOPRA source codes (in Pascal) were written by Benno Graf and Jörg Samietz (Agroscope, Switzerland). This includes but is not limited to the _Grapholita funebrana_ model. 
 
-## 👥 **Authors & Contributors**
+This Python implementation has been written by Matthieu Wilhelm (Agroscope, Switzerland).
 
-- **Matthieu Wilhelm** - Original R implementation and Python translation
-- **Agroscope** - Swiss Federal Research Station
 
-## 🔗 **Links**
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
-- Documentation: https://sopra.readthedocs.io/
-- Issues: https://github.com/agroscope-ch/sopra/issues  
-- Source: https://github.com/agroscope-ch/sopra
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
+
 
 ---
-
-**Note**: This package represents a complete translation from Pascal/R to Python, maintaining full compatibility with the original SOPRA model while providing modern Python packaging and development practices.
 
 ## 🎉 **Ready to Use**
 
