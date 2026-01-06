@@ -105,7 +105,7 @@ The demo notebook provides:
 # Verify package integrity
 sopra-verify
 ```
-```
+
 
 ## 📊 **Data Format**
 
