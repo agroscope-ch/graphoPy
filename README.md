@@ -185,6 +185,57 @@ pip install pandas numpy matplotlib pathlib
 - Minimum 1GB RAM
 - 100MB disk space
 
+## ⚙️ **Configuration**
+
+### **Environment Variables**
+
+For portable deployment across different systems, configure these environment variables:
+
+```bash
+# Set path to meteorological data archive
+export SOPRA_METEO_ARCHIVE_PATH="/path/to/your/meteo/archive"
+
+# Set path to Pascal reference data (for validation)
+export SOPRA_PASCAL_REFERENCE_PATH="/path/to/pascal/reference.csv"
+```
+
+**Windows:**
+```cmd
+set SOPRA_METEO_ARCHIVE_PATH=C:\path\to\your\meteo\archive
+set SOPRA_PASCAL_REFERENCE_PATH=C:\path\to\pascal\reference.csv
+```
+
+### **Default Behavior**
+
+If environment variables are not set, the system will:
+1. Try platform-specific default paths (if they exist)
+2. Fall back to relative paths in the current directory
+3. Look for `sopra_in/` directory for meteorological data
+4. Look for `output_run_Pascal/gfu_all_years.csv` for Pascal reference data
+
+This ensures the package works out-of-the-box for development while remaining portable for deployment.
+
+### **Network Environment Detection**
+
+The SOPRA Demo notebook automatically detects the runtime environment:
+
+**🏢 Agroscope Network Environment:**
+- Accesses meteorological archive for comprehensive data processing
+- Converts Excel files to .std format for validation
+- Full functionality including historical data analysis
+
+**🌐 External Environment:**
+- Automatically skips archive-dependent operations
+- Uses provided sample `.std` files in `sopra_in/` directory  
+- Full model validation and simulation capabilities maintained
+- External users can add their own `.std` files as needed
+
+**For External Users:**
+- ✅ **No additional setup required** - the notebook handles everything automatically
+- ✅ **Complete functionality** available with included sample data
+- ✅ **Easy data integration** - just add `.std` files to `sopra_in/` directory
+- ✅ **Full validation** - Python vs Pascal comparison works with provided data
+
 ## 📖 **Usage Examples**
 
 ### **1. Single Station Simulation**

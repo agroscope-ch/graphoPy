@@ -42,35 +42,78 @@ STATIONS = [
 # Required columns for SOPRA
 REQUIRED_COLUMNS = ['Tagnr', 'Stunde', 'Tmit', 'Strahlung', 'Tbod_5cm']
 
-def get_cross_platform_paths():
+def get_default_pascal_reference_path():
     """
-    Get cross-platform paths based on current operating system.
+    Get path to Pascal reference data file.
+    
+    First checks environment variable SOPRA_PASCAL_REFERENCE_PATH.
+    If not set, falls back to default location.
     
     Returns
     -------
-    dict
-        Dictionary containing platform-appropriate paths for different resources
+    str
+        Path to Pascal reference data CSV file
     """
-    system = platform.system().lower()
+    env_path = os.environ.get('SOPRA_PASCAL_REFERENCE_PATH')
+    if env_path and os.path.exists(env_path):
+        return env_path
     
-    if system == 'windows':
-        # Windows paths (original)
-        return {
-            'archive_base': r'O:\Data-Work\10_Support_Resources-PO\13_Meteo_Public\Archiv\Stundenwerte',
-            'sopra_app_source': r'O:\Data-Work\10_Support_Resources-PO\13_Meteo_App\Sopra\sopra_update_service\sopra_bulk.exe',
-            'output_base': r'O:\Data-Work\22_Plant_Production-CH\222.6_Mycologie_protected\Projets de recherche\30_Données utilisateurs\Matthieu Wilhelm\SOPRA\SOPRA\SOPRA_Run_legacy\run_Pascal'
-        }
-    else:
-        # Linux/Unix paths (mounted drive)
-        return {
-            'archive_base': '/home/f80821784/mnt/agroscope/Data-Work/10_Support_Resources-PO/13_Meteo_Public/Archiv/Stundenwerte',
-            'sopra_app_source': '/home/f80821784/mnt/agroscope/Data-Work/10_Support_Resources-PO/13_Meteo_App/Sopra/sopra_update_service/sopra_bulk.exe',
-            'output_base': '/home/f80821784/mnt/agroscope/Data-Work/22_Plant_Production-CH/222.6_Mycologie_protected/Projets de recherche/30_Données utilisateurs/Matthieu Wilhelm/SOPRA/SOPRA/SOPRA_Run_legacy/run_Pascal'
-        }
+    # Default location
+    default_path = "output_run_Pascal/gfu_all_years.csv"
+    if os.path.exists(default_path):
+        return default_path
+    
+    # Alternative location for package structure
+    alt_path = os.path.join(os.path.dirname(__file__), "..", "..", "output_run_Pascal", "gfu_all_years.csv")
+    return os.path.normpath(alt_path)
 
-# Get platform-appropriate paths
-PLATFORM_PATHS = get_cross_platform_paths()
-DEFAULT_ARCHIVE_BASE = PLATFORM_PATHS['archive_base']
+
+def get_default_archive_path():
+    """
+    Get default meteorological archive path.
+    
+    This function provides a portable way to locate meteorological data:
+    1. First checks environment variable SOPRA_METEO_ARCHIVE_PATH
+    2. Falls back to platform-specific paths (if they exist), specific to Agroscope network
+    3. Finally uses current directory + 'sopra_in' as last resort
+    
+    For portable deployment, users should set the environment variable:
+    export SOPRA_METEO_ARCHIVE_PATH="/path/to/your/meteo/archive"
+    
+    Returns
+    -------
+    str
+        Path to meteorological archive directory
+    """
+    # Check environment variable first
+    env_path = os.environ.get('SOPRA_METEO_ARCHIVE_PATH')
+    if env_path and os.path.exists(env_path):
+        return env_path
+    
+    # Platform-specific fallbacks (for backward compatibility)
+    # These are example paths - users should set SOPRA_METEO_ARCHIVE_PATH environment variable
+    system = platform.system().lower()
+    if system == 'windows':
+        # Example Windows network drive path - customize via environment variable
+        fallback_path = r'O:\Data-Work\10_Support_Resources-PO\13_Meteo_Public\Archiv\Stundenwerte'
+    else:
+        # Example Linux mount path - customize via environment variable  
+        fallback_path = '/mnt/agroscope/Data-Work/10_Support_Resources-PO/13_Meteo_Public/Archiv/Stundenwerte'
+    
+    # Only use fallback if it actually exists (won't work on other machines)
+    if os.path.exists(fallback_path):
+        return fallback_path
+    
+    # Final fallback to current directory + sopra_in
+    current_dir_fallback = os.path.join(os.getcwd(), 'sopra_in')
+    if os.path.exists(current_dir_fallback):
+        return current_dir_fallback
+    
+    # Return current directory as last resort
+    return os.getcwd()
+
+# Get default archive path
+DEFAULT_ARCHIVE_BASE = get_default_archive_path()
 
 
 def discover_meteo_file(year: int, s_short: str, s_name: str, s_name_internal: str, 

@@ -41,7 +41,8 @@ from .core import (
 
 from .meteo import (
     STATIONS,
-    get_cross_platform_paths,
+    get_default_pascal_reference_path,
+    get_default_archive_path,
     discover_meteo_file,
     validate_meteo_file,
     get_station_info
@@ -56,7 +57,8 @@ __all__ = [
     'get_trunk_temp',
     'rate',
     'STATIONS',
-    'get_cross_platform_paths',
+    'get_default_pascal_reference_path',
+    'get_default_archive_path',
     'discover_meteo_file',
     'validate_meteo_file',
     'get_station_info'
