@@ -43,9 +43,14 @@ dev = [
 jupyter = [
     "jupyter>=1.0.0",
     "ipykernel>=6.0.0",
+    "nbconvert>=7.0.0",
 ]
 visualization = [
     "networkx>=2.6.0",
+]
+data = [
+    "xlrd>=2.0.0",
+    "openpyxl>=3.0.0",
 ]
 all = [
     "pytest>=6.0",
@@ -55,7 +60,10 @@ all = [
     "mypy",
     "jupyter>=1.0.0",
     "ipykernel>=6.0.0",
+    "nbconvert>=7.0.0",
     "networkx>=2.6.0",
+    "xlrd>=2.0.0",
+    "openpyxl>=3.0.0",
 ]
 
 [project.urls]
@@ -118,3 +126,18 @@ strict_equality = true
 max-line-length = 88
 extend-ignore = ["E203", "W503"]
 exclude = [".git", "__pycache__", "build", "dist"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+    "nbconvert>=7.0.0",
+    "networkx>=2.6.0",
+    "xlrd>=2.0.0",
+    "openpyxl>=3.0.0",
+]

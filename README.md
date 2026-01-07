@@ -41,25 +41,50 @@ Optional dependencies:
 ## 📦 **Package Structure**
 
 ```
-SOPRA_Python_Standalone/
+graphoPy/
 ├── src/sopra/                    # Main package directory
 │   ├── __init__.py              # Package initialization and exports
 │   ├── core.py                  # Core SOPRA model functions
 │   ├── meteo.py                 # Meteorological data utilities
 │   └── cli.py                   # Command-line interface
+├── tests/                        # Test suite
+│   ├── __init__.py
+│   ├── test_core.py             # Core functionality tests
+│   └── test_meteo.py            # Meteorological data tests
+├── examples/                     # Example notebooks and demos
+│   ├── SOPRA_Demo.ipynb         # Main demonstration notebook
+│   ├── SOPRA_Demo_backup.ipynb  # Backup notebook
+│   ├── stations.txt             # Station metadata
+│   └── README.md                # Examples documentation
+├── data/                         # Test data and outputs
+│   ├── input/                   # Input meteorological data
+│   │   └── sopra_in/           # Standard format meteo files (2004-2024)
+│   ├── output/                  # Model outputs
+│   │   ├── output_run_Pascal/  # Pascal reference results
+│   │   └── output_run_Python/  # Python implementation results
+│   └── README.md                # Data documentation
+├── Makefile                      # Build and test automation
 ├── pyproject.toml               # Package configuration and metadata
-├── SOPRA_Demo.ipynb             # Main demonstration notebook
-├── stations.txt                 # Station configuration
-├── sopra_in/                    # Meteorological input data (2024)
-│   ├── metaig24.std            # Aigle meteorological data
-│   ├── metber24.std            # Bern meteorological data
-│   ├── metcgi24.std            # Changins meteorological data
-│   └── ...                     # All 13 Swiss stations (2024)
-└── output_run_Pascal/          # Pascal reference data
-    └── gfu_all_years.csv       # Pascal validation reference
+└── README.md                    # This file
 ```
 
 ## 🚀 **Quick Start**
+
+### **Using the Makefile (Recommended)**
+
+```bash
+# Install all dependencies
+make install-all
+
+# Run unit tests (31 tests, 71% coverage)
+make test-unit
+
+# Execute demo notebook
+make test-notebook
+
+# Clean up
+make clean
+```
 
 ### **Using the Package**
 
@@ -401,14 +426,43 @@ for file_path in required_files:
 
 ## 🧪 **Development and Testing**
 
+### **Running Tests**
+
+The project includes a comprehensive test suite with **71% code coverage**.
+
+```bash
+# Run all unit tests with coverage report
+make test-unit
+
+# Run specific test file
+pytest tests/test_core.py -v
+
+# Run with detailed coverage report
+pytest --cov=sopra --cov-report=html
+```
+
+**Test Coverage:**
+- `src/sopra/__init__.py`: 100%
+- `src/sopra/core.py`: 86%
+- `src/sopra/meteo.py`: 42%
+- **Overall**: 71%
+
+**Test Suite (31 tests):**
+- ✅ Core utility functions (rate calculations, temperature modeling)
+- ✅ Model initialization and configuration
+- ✅ Delay and stage progression functions
+- ✅ Main update loop and population dynamics
+- ✅ Meteorological data handling
+- ✅ Station information and file validation
+
 ### **Development Installation**
 
 ```bash
 # Install with development tools
-pip install -e .[dev]
+make install-dev
 
-# Run tests (when available)
-pytest
+# Or using pip directly
+pip install -e .[dev]
 
 # Code formatting
 black src/sopra/
