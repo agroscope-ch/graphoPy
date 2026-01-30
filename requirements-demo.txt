@@ -1,0 +1,17 @@
+# SOPRA Demo Notebook Requirements
+# These are additional dependencies needed specifically for running the demo notebook
+# Core SOPRA library dependencies are managed in pyproject.toml
+
+# Jupyter notebook support
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Visualization for demo charts
+networkx>=2.6.0
+
+# Excel file processing for meteorological data
+xlrd>=1.0.0
+openpyxl>=2.6.0
+
+# Note: Core dependencies (numpy, pandas, matplotlib) are included 
+# automatically when installing the sopra package with: pip install -e .

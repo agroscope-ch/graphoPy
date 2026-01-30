@@ -1,0 +1,33 @@
+publiccodeYmlVersion: 0.5.0
+name: GraphoPy
+url: https://github.com/agroscope-ch/graphoPy
+releaseDate: 2025-12-22
+platforms:
+  - windows
+  - linux
+  - mac
+developmentStatus: concept
+softwareType: standalone/desktop
+organisation:
+  uri: https://ld.admin.ch/ou/10003634
+  name: Agroscope
+description:
+  en:
+    localisedName: GraphoPy
+    shortDescription: Python implementation of SOPRA model for the insect Grapholita funebrana.
+    longDescription: This package contains a complete, standalone Python
+      implementation of the SOPRA model for *Grapholita funebrana* (plum fruit
+      moth) population dynamics. The implementation has been translated from the
+      original Pascal version and thoroughly validated against the Pascal
+      reference results.
+    documentation: https://github.com/agroscope-ch/graphoPy
+    features:
+      - Can run the SOPRA for grapholita funebrana model using input data
+legal:
+  license: CC-BY-NC-SA-4.0
+maintenance:
+  type: none
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - en
